@@ -11,7 +11,7 @@ cin>>num;
 
 
 for(i=1;i<=num;i++){
- cout<<i*5; 
+ cout<< i*5; 
 }
 
 
