@@ -36,8 +36,8 @@ int main() {
 salarioTotal = salarioNormal + salarioExtra;
 
   
-  cout<<"El salario total es: %.2f\n"<<salarioTotal<<endl;//aqui marca un error 
-  
+  cout<<"El salario total es " << salarioTotal <<endl;//aqui marca un error 
+   
   return 0;
 }
 
