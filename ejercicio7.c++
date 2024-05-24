@@ -53,7 +53,7 @@ int main() {
       cin>>altura;
 
       area = base * altura;
-      cout<<"El área del rectángulo es: %.2f\n"<< area<<endl;
+      cout<<"El área del rectángulo es:"<< area<<endl;
       break;
     }
 
