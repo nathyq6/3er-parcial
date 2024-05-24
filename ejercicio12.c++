@@ -10,12 +10,12 @@ cin>>num1;
 cout<<"dime el segundo numero";
 cin>>num2;
 total=num1%num2;
-cout<<"el total de la division es %d\n"<<total<<endl;
+cout<<"el total de la division es "<<total<<endl;
 if(total-0){;
-cout<<" %d el numero no es divisible\n";
+cout<<" el numero no es divisible";
 }
 else{
-cout<<"el numero es divisible\n";
+cout<<"el numero es divisible";
 
 
 }
