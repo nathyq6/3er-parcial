@@ -12,13 +12,13 @@ cin>>n;
 
 for(int i=0;i<n;i++){
 
-cout<<"digite un nombre para la posicion "<<i<<endl;
+cout<<"digite un nombre para la posicion "<<i+1<<endl;
 cin>>nombre;
 personas[i]=nombre;
 }
 
 for(int i=0;i<n;i++){
-cout<<"el dato en la posicion"<<i<<"es"<<personas[i];
+cout<<"el dato en la posicion"<<i+1<<"es"<<personas[i];
 }
 
 return 0;
