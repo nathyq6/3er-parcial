@@ -2,22 +2,30 @@
 
 using namespace std;
 
+
 int main() {
-  int n;
+  int p;
+ int  cont = 0;
 
-  cout << "Digite el tamaño del arreglo ";
-  cin >> n;
+  cout << "Digite el numero de posiciones (tamaño): ";
+  cin >> p;
 
-  int num[n];
+  int num[p];
 
-  for (int i = 0; i < n; i++) {
-    cout << "Digite un numero para la posicion " << i + 1 <<endl;
+  for (int i = 0; i < p; i++) {
+    cout << "Digite numero " << i + 1 << ": ";
     cin >> num[i];
   }
 
-  for (int i = 0; i < n; i++) {
-    cout << "el dato de la posicion"<<i+1<<"es"<<num[1]<<endl;
+  int countPositive = 0;
+  for (int i = 0; i < p; i++) {
+    cout<<"los numeros positivos son"<<num[1]<<endl;
+    if (num[i] > 0) {
+      cont=cont+1;
+    }
   }
+
+  cout << "Hay " << cont<< " numeros positivos" << endl;
 
   return 0;
 }
