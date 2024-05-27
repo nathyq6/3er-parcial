@@ -22,7 +22,7 @@ int main() {
     cout << "El dato en la posición " << i + 1 << " es " << vector[i] << endl;
   }
 
-  cout << "La suma de los elementos del vector es " << acum << endl;
+  cout << "La suma de los elementos del vector esss " << acum << endl;
 
   return 0;
 }
