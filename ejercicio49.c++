@@ -12,7 +12,7 @@ int main() {
     }
 
     int suma2 = 0;
-
++
     for (int j = 0; j < 3; j++) {
         int suma = 0;
 
