@@ -1,3 +1,5 @@
+//debera ingresar un numero unico de tres cifras 
+//no tres numero de una cifra
 #include<iostream>
 using namespace std;
 int main(){
