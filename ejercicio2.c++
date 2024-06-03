@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector>
+#include <vector> //utilizo vectores
 #include <algorithm>
 
 using namespace std;
@@ -42,3 +42,4 @@ int main() {
 
   return 0;
 }
+
