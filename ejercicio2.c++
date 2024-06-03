@@ -1,37 +1,50 @@
-//modificar el programa para que muestre el mayor, y si hay numero iguales tambien 
+#include <iostream>
+#include <vector>
+#include <algorithm>
 
-#include<iostream>
 using namespace std;
-int main(){
-int num,num1,num2,num3,num4,num5;
-int menor,i;
 
-cout<<"dime el primer numero";
-cin>>num1;
-cout<<"dime el segundo numero";
-cin>>num2;
-cout<<"dime el tercer numero";
-cin>>num3;
-cout<<"dime el cuarto numero";
-cin>>num4;
-cout<<"dime el quinto numero";
-cin>>num5;
+int main() {
 
-num=num1;
+  // Declaración de variables
+  vector<int> numeros(5); // Vector para almacenar los 5 números
+  int menor, mayor;
+  bool hayRepetidos = false;
 
-if(num2<num){;
-num=num2;
-}
-if(num3<num){;
-num=num3;
-}
-if(num4<num){;
-num=num4;
-}
-if(num5=num){;
-num=num5;
-}
+  // Ingreso de números
+  cout << "Ingrese 5 números: " << endl;
+  for (int i = 0; i < 5; i++) {
+    cin >> numeros[i];
+  }
 
-cout<<"el menor es"<<num<<endl;
-return 0;
+  // Encontrar el menor y el mayor
+  menor = mayor = numeros[0];
+  for (int i = 1; i < 5; i++) {
+    if (numeros[i] < menor) {
+      menor = numeros[i];
+    } else if (numeros[i] > mayor) {
+      mayor = numeros[i];
+    }
+  }
+
+  // Detectar números repetidos
+  sort(numeros.begin(), numeros.end()); // Ordenar el vector para facilitar la detección de repetidos
+  for (int i = 1; i < 5; i++) {
+    if (numeros[i] == numeros[i - 1]) {
+      hayRepetidos = true;
+      cout << "Número repetido: " << numeros[i] << endl;
+    }
+  }
+
+  // Mostrar resultados
+  cout << "El número menor es: " << menor << endl;
+  cout << "El número mayor es: " << mayor << endl;
+
+  if (hayRepetidos) {
+    cout << "Hay números repetidos." << endl;
+  } else {
+    cout << "No hay números repetidos." << endl;
+  }
+
+  return 0;
 }
