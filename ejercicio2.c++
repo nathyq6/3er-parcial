@@ -1,3 +1,5 @@
+//modificar el programa para que muestre el mayor, y si hay numero iguales tambien 
+
 #include<iostream>
 using namespace std;
 int main(){
