@@ -25,5 +25,11 @@ if(hora>=20 &&hora <=24){;
 cout<<"buenas noches";
 }
 
+if(hora>=25){;
+
+cout<<"hora invalida";
+
+}
+
 return 0;
 }
