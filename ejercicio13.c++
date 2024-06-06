@@ -1,21 +1,21 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int main (){
 
-int num;
-cout<<" dime el numero";
-cin>>num;
+int main() {
 
-if((num %2) ==0){;
-cout<<" el numero es par ";
+  int num;
+  cout << "Dime el numero ";
+  cin >> num;
 
-}
-if((num %1) ==0){;
-cout<<" el numero es impar ";
-}
+  if (num % 2 == 0) {
+    cout << "El numero es par" << endl;
+  } else if (num % 2 != 0) {
+    cout << "El numero es impar" << endl;
+  }
 
-if((num %3) ==0){;
-cout<<" el numero es divisible de 3 ";
-}
-return 0;
+  if (num % 3 == 0) {
+    cout << "El numero es divisible por 3" << endl;
+  }
+
+  return 0;
 }
