@@ -1,8 +1,8 @@
-//equipo 6
+//Equipo6
 #include <iostream>
 using namespace std;
 
-// OSVALDO VALENTIN ESCOBAR SANDOVAL
+//OSVALDO VALENTIN Función para calcular el promedio de tres números
 float calcularPromedio(float a, float b, float c) {
     return (a + b + c) / 3.0;
 }
@@ -19,13 +19,13 @@ float obtenerMaximo(float a, float b, float c) {
     return maximo;
 }
 
-//danna paola garcia perez llama a la funcion
+// danna paola_promedio final
 float calcularPromedioFinal(float examen, float parcial1, float parcial2) {
-    // Calcula el promedio de las calificaciones
-    float promedio_calificaciones = calcularPromedio(examen, parcial1, parcial2);
+   
+    float promedio_parciales = (parcial1 * 0.2) + (parcial2 * 0.2);
 
-    // Ailyn La nota final es la mejor entre el promedio y el examen
-    float nota_final = obtenerMaximo(examen, promedio_calificaciones, promedio_calificaciones);
+    // Ailyn La nota final es la mejor entre el promedio de los parciales y el examen
+    float nota_final = obtenerMaximo(examen, promedio_parciales, examen);
     return nota_final;
 }
 
@@ -37,11 +37,11 @@ int main() {
 
         // Solicitar las calificaciones al usuario
       //nathaly cuamatzi cuamatzi 
-        cout << "Ingrese la calificación del primer parcial: ";
+        cout << "Ingrese la calificación del tercer paarcial (60%): ";
         cin >> examen;
-        cout << "Ingrese la calificación del segundo parcial: ";
+        cout << "Ingrese la calificación del primer parcial (20%): ";
         cin >> parcial1;
-        cout << "Ingrese la calificación del tercer parcial: ";
+        cout << "Ingrese la calificación del segundo parcial (20%): ";
         cin >> parcial2;
 
         
@@ -51,11 +51,11 @@ int main() {
         
         float calificacion_final = calcularPromedioFinal(examen, parcial1, parcial2);
         
-       
+        
         float calificacion_maxima = obtenerMaximo(examen, parcial1, parcial2);
         cout << "La calificación más alta es: " << calificacion_maxima << endl;
 
-        
+       
         cout << "La calificación final del alumno es: " << calificacion_final << endl;
 
         
@@ -65,3 +65,4 @@ int main() {
 
     return 0;
 }
+  
