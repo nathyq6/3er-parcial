@@ -1,121 +1,130 @@
 #include <iostream>
+#include <vector>
 #include <string>
 
 using namespace std;
 
-// Estructura para almacenar los datos de un usuario
 struct Usuario {
-  int id;
-  string nombre;
-  string contrasena;
-  string tipoUsuario;
+    int id;
+    string nombre;
+    string contrasena;
+    string tipo;
 };
 
-// Función para mostrar el menú principal
-void mostrarMenu() {
-  cout << "\n\nMENU PRINCIPAL\n";
-  cout << "1. Crear usuario\n";
-  cout << "2. Leer usuario\n";
-  cout << "3. Actualizar usuario\n";
-  cout << "4. Eliminar usuario\n";
-  cout << "5. Salir\n";
-  cout << "Ingrese su opción: ";
+vector<Usuario> usuarios;
+
+void crearUsuario() {
+    Usuario nuevoUsuario;
+    cout << "Ingrese ID: ";
+    cin >> nuevoUsuario.id;
+    cout << "Ingrese Nombre: ";
+    cin >> nuevoUsuario.nombre;
+    cout << "Ingrese Contraseña: ";
+    cin >> nuevoUsuario.contrasena;
+    cout << "Ingrese Tipo (anonimo/administrador): ";
+    cin >> nuevoUsuario.tipo;
+    usuarios.push_back(nuevoUsuario);
+    cout << "Usuario creado con éxito.\n";
 }
 
-// Función para crear un usuario
-void crearUsuario(Usuario usuarios[], int& numeroUsuarios) {
-  cout << "\nCREAR USUARIO\n";
-
-  // Obtener los datos del usuario
-  cout << "Ingrese el ID: ";
-  cin >> usuarios[numeroUsuarios].id;
-  cout << "Ingrese el nombre: ";
-  cin >> usuarios[numeroUsuarios].nombre;
-  cout << "Ingrese la contraseña: ";
-  cin >> usuarios[numeroUsuarios].contrasena;
-  cout << "Ingrese el tipo de usuario: ";
-  cin >> usuarios[numeroUsuarios].tipoUsuario;
-
-  // Incrementar el contador de usuarios
-  numeroUsuarios++;
-
-  cout << "\nUsuario creado exitosamente!\n";
-}
-
-// Función para leer un usuario
-void leerUsuario(Usuario usuarios[], int numeroUsuarios) {
-  cout << "\nLEER USUARIO\n";
-
-  if (numeroUsuarios == 0) {
-    cout << "No hay usuarios registrados.\n";
-    return;
-  }
-
-  // Mostrar la lista de usuarios
-  for (int i = 0; i < numeroUsuarios; i++) {
-    cout << "\nUsuario " << i + 1 << ":\n";
-    cout << "ID: " << usuarios[i].id << endl;
-    cout << "Nombre: " << usuarios[i].nombre << endl;
-    cout << "Contraseña: " << usuarios[i].contrasena << endl;
-    cout << "Tipo de usuario: " << usuarios[i].tipoUsuario << endl;
-  }
-}
-
-// Función para actualizar un usuario
-void actualizarUsuario(Usuario usuarios[], int numeroUsuarios) {
-  cout << "\nACTUALIZAR USUARIO\n";
-
-  if (numeroUsuarios == 0) {
-    cout << "No hay usuarios registrados.\n";
-    return;
-  }
-
-  // Mostrar la lista de usuarios
-  for (int i = 0; i < numeroUsuarios; i++) {
-    cout << "\nUsuario " << i + 1 << ":\n";
-    cout << "ID: " << usuarios[i].id << endl;
-    cout << "Nombre: " << usuarios[i].nombre << endl;
-    cout << "Contraseña: " << usuarios[i].contrasena << endl;
-    cout << "Tipo de usuario: " << usuarios[i].tipoUsuario << endl;
-  }
-
-  // Obtener el ID del usuario a actualizar
-  int idUsuarioActualizar;
-  cout << "\nIngrese el ID del usuario a actualizar: ";
-  cin >> idUsuarioActualizar;
-
-  // Buscar el usuario en la matriz
-  bool encontrado = false;
-  for (int i = 0; i < numeroUsuarios; i++) {
-    if (usuarios[i].id == idUsuarioActualizar) {
-      encontrado = true;
-
-      // Obtener los nuevos datos del usuario
-      cout << "\nIngrese los nuevos datos del usuario:\n";
-      cout << "Nombre: ";
-      cin >> usuarios[i].nombre;
-      cout << "Contraseña: ";
-      cin >> usuarios[i].contrasena;
-      cout << "Tipo de usuario: ";
-      cin >> usuarios[i].tipoUsuario;
-
-      cout << "\nUsuario actualizado exitosamente!\n";
-      break;
-    }
-  }
-
-  if (!encontrado) {
-    cout << "\nUsuario con ID " << idUsuarioActualizar << " no encontrado.\n";
-  }
-}
-
-// Función para eliminar un usuario
-void eliminarUsuario(Usuario usuarios[], int& numeroUsuarios) {
-  cout << "\nELIMINAR USUARIO\n";
-
-  if (numeroUsuarios == 0) {
-    cout << "No hay usuarios registrados.\n";
-    return;
+void verUsuarios() {
+    for (const auto& usuario : usuarios) {
+        cout << "ID: " << usuario.id << ", Nombre: " << usuario.nombre 
+             << ", Contraseña: " << usuario.contrasena 
+             << ", Tipo: " << usuario.tipo << endl;
     }
 }
-  
+
+void modificarUsuario() {
+    int id;
+    cout << "Ingrese el ID del usuario a modificar: ";
+    cin >> id;
+
+    for (auto& usuario : usuarios) {
+        if (usuario.id == id) {
+            cout << "Ingrese nuevo Nombre: ";
+            cin >> usuario.nombre;
+            cout << "Ingrese nueva Contraseña: ";
+            cin >> usuario.contrasena;
+            cout << "Ingrese nuevo Tipo (anonimo/administrador): ";
+            cin >> usuario.tipo;
+            cout << "Usuario modificado con éxito.\n";
+            return;
+        }
+    }
+    cout << "Usuario no encontrado.\n";
+}
+
+void eliminarUsuario() {
+    int id;
+    cout << "Ingrese el ID del usuario a eliminar: ";
+    cin >> id;
+
+    for (auto it = usuarios.begin(); it != usuarios.end(); ++it) {
+        if (it->id == id) {
+            usuarios.erase(it);
+            cout << "Usuario eliminado con éxito.\n";
+            return;
+        }
+    }
+    cout << "Usuario no encontrado.\n";
+}
+
+void menuAnonimo() {
+    int opcion;
+    do {
+        cout << "\nMenu Anonimo\n";
+        cout << "1. Crear Usuario\n";
+        cout << "2. Ver Usuarios\n";
+        cout << "3. Salir\n";
+        cout << "Seleccione una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1: crearUsuario(); break;
+            case 2: verUsuarios(); break;
+            case 3: cout << "Saliendo...\n"; break;
+            default: cout << "Opción no válida.\n";
+        }
+    } while (opcion != 3);
+}
+
+void menuAdministrador() {
+    int opcion;
+    do {
+        cout << "\nMenu Administrador\n";
+        cout << "1. Crear Usuario\n";
+        cout << "2. Ver Usuarios\n";
+        cout << "3. Modificar Usuario\n";
+        cout << "4. Eliminar Usuario\n";
+        cout << "5. Salir\n";
+        cout << "Seleccione una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1: crearUsuario(); break;
+            case 2: verUsuarios(); break;
+            case 3: modificarUsuario(); break;
+            case 4: eliminarUsuario(); break;
+            case 5: cout << "Saliendo...\n"; break;
+            default: cout << "Opción no válida.\n";
+        }
+    } while (opcion != 5);
+}
+
+int main() {
+    string tipoUsuario;
+    cout << "Ingrese su tipo de usuario (anonimo/administrador): ";
+    cin >> tipoUsuario;
+
+    if (tipoUsuario == "anonimo") {
+        menuAnonimo();
+    } else if (tipoUsuario == "administrador") {
+        menuAdministrador();
+    } else {
+        cout << "Tipo de usuario no válido.\n";
+    }
+
+    return 0;
+}
+
