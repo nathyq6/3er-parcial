@@ -1,0 +1,36 @@
+using System;
+using System.Windows.Forms;
+
+namespace CerrarVentana
+{
+    public partial class FormularioPrincipal : Form
+    {
+        private Button botonSalir;
+
+        public FormularioPrincipal()
+        {
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            this.botonSalir = new Button();
+            this.botonSalir.Text = "Salir";
+            this.botonSalir.Click += new EventHandler(this.botonSalir_Click);
+            this.Controls.Add(this.botonSalir);
+        }
+
+        private void botonSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        [STAThread]
+        static void Main()
+        {
+            Application.SetHighDpiMode(HighDpiMode.SystemCompatible);
+            Application.EnableVisualStyles();
+            Application.Run(new FormularioPrincipal());
+        }
+    }
+}
